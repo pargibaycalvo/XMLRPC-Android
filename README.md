@@ -108,8 +108,10 @@ Una vez abramos los paréntesis se despliegan 3 métodos:
             // External errors
         }
 
-El primer método llamado onResponse es la respuesta que te manda el Server cuando se conecta con écito.
+El primer método llamado onResponse es la respuesta que te manda el Server cuando se conecta con éxito.
+
 El segundo método llamado onError devuelve una serie de errores, varios pueden ser del cliente, etc.
+
 El tercer método llamado onServerError devuelve los errores producidos por el servidor.
 
 Esto lo que haría sería mediante la conexión que le vamos a realizar de forma asíncrona nos permite tener varias conexiones a la vez aparte nos responderá si hay errores o no. Este sería el método en sí pero le falta la conexión, va situada después del "};" será justamente el cierre del listener en este caso:

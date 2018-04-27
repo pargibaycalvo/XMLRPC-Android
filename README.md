@@ -1,7 +1,7 @@
 # XMLRPC-Android
 Connection server PHP
 
-En esta explicación veremos como realizar una conexión a un server php de forma síncrona que contiene xmlrpc desde nuestra app de AndroidStudio.
+En esta explicación veremos como realizar una conexión a un server php de forma síncrona que contiene xmlrpc desde nuestra app de AndroidStudio. Yo seguí este tutorial https://github.com/gturri/aXMLRPC pero lo explico más detalladamente, para los que os gusta ir paso por paso.
 
 1º -> Añadiremos la librería (aXMLRPC) en el bulid.gradle(Module:app) y sincronizamos nuestra app:
 

@@ -1,5 +1,5 @@
 # XMLRPC-Android
-Connection server PHP
+Connection server PHP Synchronous and Asynchronous
 
 # -Synchronous connection (Conexión síncrona)-
 

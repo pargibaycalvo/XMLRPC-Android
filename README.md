@@ -164,3 +164,29 @@ Ahora en donde realizamos la conexión del cliente le decimos que iCon es igual 
      
 Resumiendo, cuando te conectes esa id quedará almacenada en iCon y la usaremos para los métodos anteriores.
 
+Para la utilización de los 3 métodos, como bien se explicaron 2 son para errores y otro es para la conexión, bien, en los métodos de errores inicializaremos en 0 el iCon, así cuando salte el catch este volverá a 0 y no guardará la id anterior, evitaremos posibles problemas si queremos conectarnos otra vez:
+
+         Log.e("ID","Se han producido varios errores"+error.getMessage());
+         iCon=0;
+         
+Los Toast no me funcionaron en mi proyecto con lo cual utilicé Log.e para ver que clase de errores da al ahcer Debug.
+
+En el onResponse si queremos ver si funciona, saltando a otra MainActivity podemos ponerlo tal que así:
+
+          @Override
+          public void onResponse(long id, Object result) {
+              // Handling the servers response
+              if(iCon==id) {
+                //función par abrir la otra MainActivity
+                iConexion=0;
+              }else{
+                Log.e("ID","Se han producido varios errores");
+              }
+           }
+
+Como veis hago la comparación del iCon con el id de la función si son iguales que abra la otra ventana. Podeis añadirle métodos o lo que os pida vuestra app.
+
+
+Esto lo estoy aun realizando puede variar, cualquier añadido por vuestra parte por muy menor que sea estamos aquí para aprender.
+Un saludo.
+

@@ -118,5 +118,8 @@ Esto lo que haría sería mediante la conexión que le vamos a realizar de forma
 
                 };
                 client.callAsync(listener,"metodo", parametros);
+                } catch (Exception ex) {
+                // External errors
+            }
 
 Con esto ya tendremos casi realizada la llamada asíncrona, como se ve la función es casi igual solo que aparte de llamar al método del .php y sus parámetros también se llama al listener para que ejecute ese hilo.

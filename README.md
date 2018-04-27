@@ -188,6 +188,7 @@ Como veis hago la comparación del iCon con el id de la función si son iguales 
 
 # Comentarios
 
-Esto lo estoy aun realizando puede variar, cualquier añadido por vuestra parte por muy menor que sea estamos aquí para aprender.
+Esto lo estoy aun realizando en un proyecto puede variar a medida que voy avanzando, cualquier añadido por vuestra parte por muy menor que sea, estamos aquí para aprender.
+
 Un saludo.
 

@@ -4,9 +4,11 @@ Connection server PHP
 En esta explicación veremos como realizar una conexión a un server php de forma síncrona que contiene xmlrpc desde nuestra app de AndroidStudio.
 
 1º -> Añadiremos la librería (aXMLRPC) en el bulid.gradle(Module:app) y sincronizamos nuestra app:
+
     implementation 'fr.turri:aXMLRPC:1.9.0'
 
 2º  -> En el AndroidManifest.xml añadimos los permisos de Internet para que la app pueda acceder:
+
     <uses-permission android:name="android.permission.INTERNET" />
     
 Una vez tenemos todo esto nuestra app estará lista para utilizar la librería aXMLRPC y su conexión a internet.

@@ -1,7 +1,7 @@
 # XMLRPC-Android
 Connection server PHP
 
--Synchronous connection (Conexión síncrona)-
+# -Synchronous connection (Conexión síncrona)-
 
 En esta explicación veremos como realizar una conexión a un server php de forma síncrona que contiene xmlrpc desde nuestra app de AndroidStudio. Yo seguí este tutorial https://github.com/gturri/aXMLRPC pero lo explico más detalladamente, para los que os gusta ir paso por paso.
 
@@ -79,7 +79,7 @@ Estos catch son esenciales ya que uno nos va a informar de posibles errores en e
 
 OJO! Esto una vez te conectes puede tardar un poco en realizar la conexión, ya que la conexión de forma síncrona el cliente hace una sola llamada al server y espera su respuesta.
 
--Asynchronous connection (Conexión Asíncrona)-
+# -Asynchronous connection (Conexión Asíncrona)-
 
 Como vimos anteriormente, la conexión síncrona realiza una sola petición al server y espera a que este le responda, sin embargo la asíncrona le está mandando peticiones al server continuas así la conexión es más rápida al server.
 
@@ -150,4 +150,17 @@ Tendría que quedar algo así:
             // External errors
         }
 
+Si realizamos la llamada como el caso de la síncrona con su método y sus parámetros no deberái funcionar, el problema está en, que los parámetros tienen que ir en un Array de Object como expliqué en la síncrona:
+
+        client.callAsync(listener,"login", new Object[]{usuario, contrasenha});
+        
+Y nos quedaría lo más importante, si os fijais cada método del hilo listener tiene un "long id" este id es generado automáticamente por el programa para diferenciar quien entra en la app. Pero hay que decirle que cliente entra y con que id, pues lo realizamos del siguiente modo, declaramos una variable en privado tipo long y la llamamos "iCon" y la inicializamos en 0, lo de private como bien sabréis es para que se pueda usar en toda la clase:
+
+        private long iConexion = 0;
+        
+Ahora en donde realizamos la conexión del cliente le decimos que iCon es igual a esa conexión:
+        
+        iCon = client.callAsync(listener,"login", new Object[]{usuario, contrasenha});
+     
+Resumiendo, cuando te conectes esa id quedará almacenada en iCon y la usaremos para los métodos anteriores.
 

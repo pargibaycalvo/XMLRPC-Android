@@ -186,6 +186,7 @@ En el onResponse si queremos ver si funciona, saltando a otra MainActivity podem
 
 Como veis hago la comparación del iCon con el id de la función si son iguales que abra la otra ventana. Podeis añadirle métodos o lo que os pida vuestra app.
 
+# Comentarios
 
 Esto lo estoy aun realizando puede variar, cualquier añadido por vuestra parte por muy menor que sea estamos aquí para aprender.
 Un saludo.

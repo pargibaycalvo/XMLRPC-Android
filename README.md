@@ -90,7 +90,7 @@ Para realizar la conexión asíncrona mantenemos las declaraciones que hicimos a
 Una vez abramos los paréntesis se despliegan 3 métodos:
 
           try {
-                listener = new XMLRPCCallback() {
+                XMLRPCCallback listener = new XMLRPCCallback() {
                     @Override
                     public void onResponse(long id, Object result) {
                         // Handling the servers response
@@ -114,7 +114,9 @@ El segundo método llamado onError devuelve una serie de errores, varios pueden 
 
 El tercer método llamado onServerError devuelve los errores producidos por el servidor.
 
-Esto lo que haría sería mediante la conexión que le vamos a realizar de forma asíncrona nos permite tener varias conexiones a la vez aparte nos responderá si hay errores o no. Este sería el método en sí pero le falta la conexión, va situada después del "};" será justamente el cierre del listener en este caso:
+Esto lo que haría sería mediante la conexión que le vamos a realizar de forma asíncrona nos permite tener varias conexiones a la vez aparte nos responderá si hay errores o no. 
+
+Este sería el método en sí pero le falta la conexión, va situada después del "};" será justamente el cierre del listener en este caso:
 
                 };
                 client.callAsync(listener,"metodo", parametros);
@@ -122,4 +124,30 @@ Esto lo que haría sería mediante la conexión que le vamos a realizar de forma
                 // External errors
             }
 
-Con esto ya tendremos casi realizada la llamada asíncrona, como se ve la función es casi igual solo que aparte de llamar al método del .php y sus parámetros también se llama al listener para que ejecute ese hilo.
+Con esto ya tendremos casi realizada la llamada asíncrona, como se ve la función es casi igual solo que aparte de llamar al método del .php y sus parámetros también se llama al listener para que ejecute ese hilo. 
+
+Tendría que quedar algo así:
+
+       try {
+                XMLRPCCallback listener = new XMLRPCCallback() {
+                    @Override
+                    public void onResponse(long id, Object result) {
+                        // Handling the servers response
+                    }
+
+                    @Override
+                    public void onError(long id, XMLRPCException error) {
+                        // Other errors
+                    }
+                    @Override
+                    public void onServerError(long id, XMLRPCServerException error) {
+                        // Errors coming from the server
+                    }
+                };
+                client.callAsync(listener,"metodo", parametros);
+
+        } catch (Exception ex) {
+            // External errors
+        }
+
+

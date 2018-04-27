@@ -14,6 +14,7 @@ En esta explicación veremos como realizar una conexión a un server php de form
 Una vez tenemos todo esto nuestra app estará lista para utilizar la librería aXMLRPC y su conexión a internet.
 
 Para empezar a realizar nuestra conexión, tenemos que saber donde tenemos ubicado nuestro script .php en nuestro equipo, o de un compañero, o bien en un servidor. Si tenemos el script alojado en carpetas recordad que tenéis que poner toda la ruta.
+
 -> http://url/archivos/server/pruebaserver.php
 
 Antes de empezar a picar código probaremos que desde nuestro equipo y mediante un buscador (Chrome, Mozilla, etc) que tenemos acceso sin problemas a ese script .php y nos muestra el contenido correcto y sin problemas.
@@ -44,7 +45,7 @@ Para realizar la conexión de forma síncrona:
 
         client.call("login");
         
-Aquí se ve como el cliente realiza una llamada al método del script.php, en este caso es "login" que aprobará nuestra conexión, todo depende de como tengáins vuestro script configurado.
+Aquí se ve como el cliente realiza una llamada al método del script.php, en este caso es "login" que aprobará nuestra conexión, todo depende de como tengáis vuestro script configurado.
 Si vuestro método del .php cuenta con parámetros de login (usuario o contraseña o ambos) tenemos que añadírselos a la función .call:
 
         client.call("login", usuario, contrasenha);

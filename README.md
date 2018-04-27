@@ -46,7 +46,8 @@ Para realizar la conexión de forma síncrona:
         client.call("login");
         
 Aquí se ve como el cliente realiza una llamada al método del script.php, en este caso es "login" que aprobará nuestra conexión, todo depende de como tengáis vuestro script configurado.
-Si vuestro método del .php cuenta con parámetros de login (usuario o contraseña o ambos) tenemos que añadírselos a la función .call:
+Si vuestro método del .php cuenta con parámetros de login (usuario o contraseña o ambos) tenemos que añadírselos a la función .call. 
+No hace falta que se llamen de igual manera que en el .php con tal de saber sin son String, Int, etc:
 
         client.call("login", usuario, contrasenha);
 
